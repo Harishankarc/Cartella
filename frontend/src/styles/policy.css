@@ -1,0 +1,25 @@
+.policy{
+    margin-top: 100px;
+    margin-left: 230px;
+    margin-right: 230px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.policy1, .policy2, .policy3{
+    text-align: center;
+}
+.policy1-text1{
+    font-weight: 700;
+}
+.policy1-text2{
+    color: gray;
+}
+@media screen and (max-width : 400px){
+    .policy{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        margin-top: 150px;
+    }
+}

@@ -1,0 +1,155 @@
+*{
+  font-family: "Roboto Mono", monospace;
+  background-color: aliceblue;
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+.roboto-mono{
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+.appProduct{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.addProduct-heading{
+  font-size: 3rem;
+  text-align: center;
+}
+input[type="file"]{
+  width: 200px;
+  height: 200px;
+  margin-top: 15px;
+  border: 2px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.Selected_image{
+  width: 150px;
+}
+.input-details{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-heading h1{
+  text-align: center;
+  font-size: 1.75rem;
+  color: rgb(55, 65 ,81);
+}
+.cart-heading h1 > span{
+  color: rgb(107, 114, 128);
+}
+.cart-heading{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 400px;
+}
+.cart-heading hr{
+  width:50px;
+  height: 3px;
+  background-color : rgb(55, 65 ,81);
+}
+
+.custom-file-upload {
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color:white;
+  color: black;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.custom-file-upload::before {
+  content: "Upload Image";
+  display: block; 
+  font-size: 1rem; 
+  margin-bottom: 8px;
+}
+.imagediv{
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+  overflow: hidden;
+}
+.productNamePrice{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 0.2rem;
+}
+.productNamePrice p{
+  padding-bottom: 15px;
+}
+input[type="text"], input[type="number"]{
+  width: 400px;
+  height: 30px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+}
+input[type="text"]:focus{
+  border: 1px solid gray;
+}
+input[type="number"]{
+  width: 50px;
+  margin-bottom: 0;
+}
+.addButton{
+  border: 2px solid rgba(17, 24, 39, 1);
+    display: block;
+    width: 40%;
+     padding: 0.75rem;
+    text-align: center;
+    color: rgba(17, 24, 39, 1);
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      background-color: rgba(17, 24, 39, 1);
+      color: white;
+    }
+}
+.priceAdd{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.title-heading{
+  justify-content: start;
+  gap: 5rem;
+}
+#dropdown{
+  color: grey;
+  font-size: 1rem;
+  height: 45px;
+}
+#dropdown option{
+  color: black;
+}

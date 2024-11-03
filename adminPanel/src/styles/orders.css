@@ -1,0 +1,38 @@
+.product-image{
+    border-radius: 10px;
+    overflow: hidden;
+    &:hover{
+        overflow: hidden;
+        scale: 1.05;
+    }
+}
+.image-container{
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.orders{
+    display: flex;
+    align-items: flex-start;
+}
+.orders-container{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.product{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.product-info h2{
+    font-size: 15px;
+    font-weight: 500;
+}

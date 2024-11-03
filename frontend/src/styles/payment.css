@@ -1,0 +1,52 @@
+.payment{
+    margin-left: 150px;
+    margin-right: 150px;
+    
+}
+.payment-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.payment-heading{
+    width: 500px;
+}
+.payment-options li{
+    list-style: none;
+}
+.payment-optionbox{
+    width: 700px;
+    border:1px solid rgb(55, 65 ,81);
+    border-radius: 15px;
+    padding: 50px;
+}
+.creditordebit{
+    cursor: pointer;
+    color: rgb(55, 65 ,81);
+}
+.creditordebit h2{
+    padding: 0;
+    margin-bottom: 10px;
+}
+.paymentcards{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.modal{
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgb(55, 65 ,81);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.modal p{
+    font-size: 30px;
+    color: rgb(55, 65 ,81);
+}

@@ -1,0 +1,23 @@
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    overflow: hidden;
+    gap: 3rem;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+}
+.inter {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+.error img{
+    width: 50%;
+    margin: 0 auto;
+}
+.error h1{
+    font-size: 5rem;
+}
