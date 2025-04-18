@@ -1,13 +1,12 @@
-*{
-  font-family: "Roboto Mono", monospace;
-  background-color: aliceblue;
-  margin: 0;
-  padding: 0;
-  /* overflow: hidden; */
-}
+@import "tailwindcss";
 a{
   color: black;
   text-decoration: none;
+}
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .roboto-mono{
   font-family: "Roboto Mono", monospace;
@@ -15,7 +14,7 @@ a{
   font-weight: 600;
   font-style: normal;
 }
-.appProduct{
+/* .appProduct{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,8 +84,8 @@ input[type="file"]{
   display: block; 
   font-size: 1rem; 
   margin-bottom: 8px;
-}
-.imagediv{
+} */
+/* .imagediv{
   height: 200px;
   width: 200px;
   object-fit: contain;
@@ -101,8 +100,8 @@ input[type="file"]{
 }
 .productNamePrice p{
   padding-bottom: 15px;
-}
-input[type="text"], input[type="number"]{
+} */
+/* input[type="text"], input[type="number"]{
   width: 400px;
   height: 30px;
   padding-left: 10px;
@@ -114,12 +113,12 @@ input[type="text"], input[type="number"]{
 }
 input[type="text"]:focus{
   border: 1px solid gray;
-}
-input[type="number"]{
+} */
+/* input[type="number"]{
   width: 50px;
   margin-bottom: 0;
-}
-.addButton{
+} */
+/* .addButton{
   border: 2px solid rgba(17, 24, 39, 1);
     display: block;
     width: 40%;
@@ -134,8 +133,8 @@ input[type="number"]{
       background-color: rgba(17, 24, 39, 1);
       color: white;
     }
-}
-.priceAdd{
+} */
+/* .priceAdd{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -152,4 +151,4 @@ input[type="number"]{
 }
 #dropdown option{
   color: black;
-}
+} */

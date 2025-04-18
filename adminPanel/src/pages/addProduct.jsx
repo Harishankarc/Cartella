@@ -41,14 +41,12 @@ export default function AddProducts() {
     
     return (
         <>
-            <Navbar />
-            <div className="addProducts">
-                <Dashboard/>
-                    <div className="appProduct">
-                        <div className="input-details">
+            <div className="bg-gradient-to-br from-gray-900 via-purple-900 to-black max-h-screen min-h-screen flex text-white">
+                    <div className="flex justify-center items-center w-screen">
+                        <div className="input-details border-1 border-white p-10 rounded-xl flex gap-10">
                             {
                                 upload ? image && <>
-                                                    <div className="imagediv">
+                                                    <div className="w-100 h-90 overflow-hidden">
                                                         <img src={URL.createObjectURL(image)} alt="Selected" className="Selected_image" />
                                                     </div>
                                                   </> 
@@ -61,28 +59,21 @@ export default function AddProducts() {
                                                     setUpload(true)
                                                 }
                                         }} />
-                                        <label htmlFor="file-input" className="custom-file-upload"></label>
+                                        <label htmlFor="file-input" className="cursor-pointer bg-white text-black py-2 px-4 rounded-md hover:bg-purple-600 focus:outline-none w-100 h-90">Select Image</label>
                                         </>
                             }
-                            <div className="productNamePrice">
-                                <p>Product name</p>
-                                <input type="text" onChange={e => setName(e.target.value)} placeholder="Product name"/>
-                                <p>Product description</p>
-                                <input type="text" onChange={e => setDescription(e.target.value)} placeholder="Product Details"/>
-                                <div className="priceAdd title-heading">
-                                    <p>Price</p>
-                                    <p>Category</p>
-                                    <p>Size</p>
-                                </div>
-                                <div className="priceAdd">
-                                    <input type="number" onChange={e => setPrice(e.target.value)} placeholder="Price" />
-                                    <select name="dropdown" id="dropdown" onChange={(e) => setCategory(e.target.value)} defaultValue={"Select"}>
+                            <div className="flex flex-col gap-5">
+                                <input type="text" onChange={e => setName(e.target.value)} placeholder="Product name" className="outline-1 outline-white rounded-md px-2 py-1 text-slate-500 w-full placeholder:text-white h-10"/>
+                                <input type="text" onChange={e => setDescription(e.target.value)} placeholder="Product Details" className="outline-1 outline-white rounded-md px-2 py-1 text-slate-500 w-full placeholder:text-white h-10"/>
+                                <div className="flex flex-col gap-5">
+                                    <input type="number" onChange={e => setPrice(e.target.value)} placeholder="Price" className="outline-1 outline-white rounded-md px-2 py-1 text-slate-500 w-full placeholder:text-white no-spinner h-10"/>
+                                    <select name="dropdown" id="dropdown" onChange={(e) => setCategory(e.target.value)} defaultValue={"Select"} className="outline-1 outline-white rounded-md px-2 py-1 text-slate-500 w-full placeholder:text-white h-10">
                                         <option value="" disabled selected>Select catagory</option>
                                         <option value="trending">Trending</option>
                                         <option value="normal">Normal</option>
                                         <option value="bestseller">Best Seller</option>
                                     </select>
-                                    <select name="dropdown" id="dropdown" onChange={(e) => setSize(e.target.value)} defaultValue={"Select"}>
+                                    <select name="dropdown" id="dropdown" onChange={(e) => setSize(e.target.value)} defaultValue={"Select"} className="outline-1 outline-white rounded-md px-2 py-1 text-slate-500 w-full placeholder:text-white h-10">
                                         <option value="" disabled selected>Select size</option>
                                         <option value="s">S</option>
                                         <option value="m">M</option>
@@ -91,11 +82,8 @@ export default function AddProducts() {
                                         <option value="xxl">XXL</option>
                                     </select>
                                 </div>
-                                <div className="priceAdd">
-                                    <p>Rating</p>
-                                </div>
-                                <div className="priceAdd">
-                                    <select name="dropdown" id="dropdown" onChange={(e) => setRating(e.target.value)} defaultValue={"Select"}>
+                                <div className="flex justify-between items-center gap-5">
+                                    <select name="dropdown" id="dropdown" onChange={(e) => setRating(e.target.value)} defaultValue={"Select"} className="outline-1 outline-white rounded-md px-2 py-1 text-slate-500 w-full placeholder:text-white">
                                         <option value="" disabled selected>Select Rating</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -103,7 +91,7 @@ export default function AddProducts() {
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
-                                    <button onClick={handleOnClick} className="addButton">Add Item</button>
+                                    <button onClick={handleOnClick} className="w-40 justify-center py-1 bg-purple-500 hover:bg-purple-600 active:bg-purple-700 rounded-md text-white ring-1 cursor-pointer">Add Item</button>
                                 </div>
                                 
                             </div>

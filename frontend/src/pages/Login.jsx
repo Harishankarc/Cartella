@@ -1,31 +1,38 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Navbar from '../components/navbar';
+import supabase from '../supabaseClient';
+import { FcGoogle } from 'react-icons/fc';
 
-export default function Login({ setIsLoggedIn, setCurrentUser }) {
+export default function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleOnClick = (e) => {
+    async function handleOnClick(e) {
         e.preventDefault();
-        axios.post('http://localhost:3000/login', {
-            email,
-            password
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password
         })
-            .then(result => {
-                if (result.data === "success") {
-                    setIsLoggedIn(true);
-                    setCurrentUser(email);
-                    window.localStorage.setItem("userIsLoggedIn", true);
-                    window.localStorage.setItem("currentUser", email);
-                    navigate('/');
-                }
-            })
-            .catch(error => console.error(error));
+        if (error) {
+            console.log(error)
+        } else {
+            navigate('/')
+            console.log(data)
+        }
     };
+
+    async function HandleGoogleLogin(){
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+        });
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(data);
+        }
+    }
 
     return (
         <>
@@ -75,13 +82,19 @@ export default function Login({ setIsLoggedIn, setCurrentUser }) {
                             Login
                         </button>
                     </form>
+                    <hr className='my-5' />
+                    <button
+                        className="w-full bg-gray-800 text-white py-2 rounded-lg font-medium hover:bg-gray-900 transition duration-300 cursor-pointer"
+                    >
+                        <div className='flex justify-center items-center gap-5' onClick={HandleGoogleLogin}>
+                            <FcGoogle size={30} />
+                            <p>Login with Google</p>
+                        </div>
+                    </button>
                 </div>
             </div>
         </>
     );
 }
 
-Login.propTypes = {
-    setIsLoggedIn: PropTypes.func.isRequired,
-    setCurrentUser: PropTypes.func.isRequired
-};
+

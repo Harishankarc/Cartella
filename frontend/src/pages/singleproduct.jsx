@@ -2,13 +2,25 @@ import Navbar from "../components/navbar";
 import { useParams, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { Rating } from 'react-simple-star-rating';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import supabase from "../supabaseClient";
 
-export default function SingleProduct({ products, currentUser }) {
+export default function SingleProduct({ products }) {
     const navigate = useNavigate();
     const [size, setSize] = useState(null);
-    const currentClient = window.localStorage.getItem("currentUser");
+    const [currentUser, setCurrentUser] = useState(null);
+
+    useEffect(()=>{
+        async function getcurrentuser(){
+            if(!currentUser){
+                const {data} = await supabase.auth.getUser();
+                setCurrentUser(data?.user?.email);
+                console.log(data?.user?.email)
+            }
+        }
+        getcurrentuser()
+        
+    },[])
 
     const { id } = useParams();
     const product = products.find((product) => product.id == id);
@@ -28,7 +40,7 @@ export default function SingleProduct({ products, currentUser }) {
         formData.append('category', product.category);
         formData.append('size', size);
         formData.append('rating', product.rating);
-        formData.append('user', currentClient);
+        formData.append('user', currentUser);
 
         axios.post('http://localhost:3000/cartdb', formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
@@ -99,8 +111,3 @@ export default function SingleProduct({ products, currentUser }) {
         </div>
     );
 }
-
-SingleProduct.propTypes = {
-    products: PropTypes.array.isRequired,
-    currentUser: PropTypes.string.isRequired
-};

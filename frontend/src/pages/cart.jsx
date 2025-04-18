@@ -5,17 +5,15 @@ import PropTypes from 'prop-types'
 import { MdDeleteOutline } from "react-icons/md";
 import '../styles/cart.css'
 import { useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
-export default function Cart() {
+export default function Cart({user}) {
     const navigate = useNavigate();
     const [cartItems, setCartItems] = useState([]);
-    const currentUser = window.localStorage.getItem("currentUser")
     const [totalAmount, setTotalAmount] = useState(0)
     const [itemCounts, setItemCounts] = useState({});
     useEffect(() => {
         async function fetchData() {
             try {
-                const senddata = { user: currentUser };
+                const senddata = { user: user };
                 const postResponse = await axios.post('http://localhost:3000/cartitems', senddata, {
                     headers: {
                         'Content-Type': 'application/json'
@@ -34,7 +32,7 @@ export default function Cart() {
         };
         fetchData();
 
-    }, [currentUser]);
+    }, [user]);
 
     useEffect(() => {
         const total = cartItems.reduce((acc, product) => {
@@ -69,19 +67,19 @@ export default function Cart() {
         navigate('/payment')
     }
 
-    console.log(currentUser)
     console.log(cartItems)
     return (
         <>
             <div className='md:px-20 px-5'>
-                <Navbar isLoggedIn={true} />
+                <Navbar />
             </div>
-            <div className="">
+            <div className="min-h-screen">
                 <div className="md:mt-10 mt-5 mb-10">
                     <h1 className="py-2 font-medium text-center text-3xl"><span>YOUR </span>CART</h1>
                     <hr className="md:mx-[40rem] mx-20" />
                 </div>
-                <div className="md:mx-20 mx-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-20">
+                {cartItems.length === 0 && <h1 className="text-2xl font-semibold text-center mt-10">Your Cart is Empty</h1>}
+                <div className="md:mx-20 mx-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-20 ">
                     {
                         cartItems.map((product, index) => {
                             return (
@@ -112,7 +110,7 @@ export default function Cart() {
                 </div>
             </div>
             {
-                cartItems.length ? <div className="md:mx-[40rem] mx-20 mb-40">
+                cartItems.length && <div className="md:mx-[40rem] mx-20 mb-40">
                     <div className="md:mt-10 mt-5 md:mb-10">
                         <h1 className="py-2 font-medium text-center md:text-3xl text-xl"><span>CART </span>TOTAL</h1>
                         <hr className="mb-5"/>
@@ -134,7 +132,7 @@ export default function Cart() {
                     <button className="cart-total-button" onClick={ProceedOnClick}>
                         Proceed
                     </button>
-                </div> : <h1 style={{ textAlign: 'center', fontWeight: 500, color: 'rgb(55, 65 ,81)' }}>See Products and add to cart!</h1>
+                </div> 
             }
         </>
     );

@@ -4,13 +4,7 @@ import Navbar from '../components/navbar'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { FaCcVisa } from "react-icons/fa";
-import { FaCcMastercard } from "react-icons/fa";
-import { SiHdfcbank } from "react-icons/si";
-import { CgPaypal } from "react-icons/cg";
-import { FaGooglePay } from "react-icons/fa";
-import { motion } from 'framer-motion';
-function Payment() {
+function Payment({user}) {
     const navigate = useNavigate();
     const [cartItems, setCartItems] = useState([]);
     const [totalAmount, setTotalAmount] = useState()
@@ -19,14 +13,13 @@ function Payment() {
     const currentUser = window.localStorage.getItem("currentUser")
     useEffect(() => {
         async function fetchData() {
-            const sendData = { user: currentUser }
+            const sendData = { user: user }
             await axios.post('http://localhost:3000/cartitems', sendData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
                 .then(result => {
-                    // console.log(result.data)
                     setCartItems(result.data)
                 })
                 .catch(error => console.log(error))
@@ -43,7 +36,7 @@ function Payment() {
     }, [cartItems])
 
     async function HandleOrderOnClick() {
-        const statusData = { status: 'placed', user: currentUser }
+        const statusData = { status: 'placed', user: user }
         await axios.post('http://localhost:3000/orderstatus', statusData, {
             headers: {
                 'Content-Type': 'application/json'
