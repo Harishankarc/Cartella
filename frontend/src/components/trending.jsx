@@ -14,13 +14,12 @@ export default function Trending(){
     },[])
     return(
         <>
-            <div className="trending">
-                <div className="trending-heading">
-                    <hr />
-                    <h1><span>LATEST</span> COLLECTION</h1>
-                    <hr />
+            <div className=" mt-10">
+                <div className="">
+                    <h1 className='py-2 font-bold text-center md:text-3xl'><span>LATEST</span> COLLECTION</h1>
+                    <hr className='md:mx-90 mx-20'/>
                 </div>
-                <p className='latestCollection-text'>
+                <p className='latestCollection-text text-center my-4 md:mt-10'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ad omnis deserunt accusamus esse incidunt possimus velit optio beatae distinctio ab totam ipsam, debitis dolore voluptatum enim impedit. Fuga, beatae.
                 </p>
                 <div className='products'>

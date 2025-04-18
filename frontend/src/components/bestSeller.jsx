@@ -15,13 +15,12 @@ export default function BestSeller(){
     },[])
     return(
         <>  
-            <div className="trending">
-                <div className="trending-heading">
-                    <hr />
-                    <h1><span>BEST</span> SELLER</h1>
-                    <hr />
+            <div className="mt-10">
+                <div className="">
+                    <h1 className='py-2 font-bold text-center md:text-3xl'><span>BEST</span> SELLER</h1>
+                    <hr className='md:mx-90 mx-20' />
                 </div>
-                <p>
+                <p className='text-center my-4 md:mt-10'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ad omnis deserunt accusamus esse incidunt possimus velit optio beatae distinctio ab totam ipsam, debitis dolore voluptatum enim impedit. Fuga, beatae.
                 </p>
                 <div className='products'>

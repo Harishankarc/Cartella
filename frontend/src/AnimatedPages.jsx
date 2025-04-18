@@ -35,7 +35,7 @@ function AnimatedPages() {
     
   return (
     <AnimatePresence>
-      <Navbar isLoggedIn={isLoggedIn}/>
+      
         <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home isLoggedIn={isLoggedIn} products={products}/>} />
             <Route path='/login' element={isLoggedIn? <Home isLoggedIn={isLoggedIn}/> : <Login setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/>} />

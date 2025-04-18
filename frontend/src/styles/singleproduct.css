@@ -3,15 +3,8 @@
     justify-content: center;
     align-items: flex-start;
     gap: 3rem;
-    margin-left: 150px;
-    margin-right: 150px;
 }
-.sp-section1 img{
-    width: 100px;
-}
-.sp-section2 img{
-    width: 300px;
-}
+
 .sp-button{
     margin-top: 30px;
     width: 150px;

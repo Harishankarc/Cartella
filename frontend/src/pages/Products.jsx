@@ -3,16 +3,20 @@ import '../styles/products.css'
 import {Link} from 'react-router-dom'
 import { motion } from 'framer-motion';
 import Filteration from '../components/filteration';
+import Navbar from '../components/navbar';
 export default function Products({products}){
     return(
         <>
+            
             <motion.div initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }} className='products-page'>
-                <div className="cart-heading product-heading">
-                    <hr />
-                    <h1>PRODUCTS</h1>
-                    <hr />
+            exit={{ opacity: 0 }} className='products-page mb-20'>
+                <div className='md:px-20 px-5'>
+                    <Navbar/>
+                </div>
+                <div className="md:mt-10 mt-5 md:mb-10">
+                    <h1 className='py-2 font-medium text-center text-3xl'>PRODUCTS</h1>
+                    <hr className='md:mx-[40rem] mx-20'/>
                 </div>
                 <br /> 
                 <div className='products'>
@@ -31,7 +35,7 @@ export default function Products({products}){
                         );
                     })
                 }
-                <Filteration products={products}/>
+                {/* <Filteration products={products}/> */}
                 </div>
             </motion.div>
         </>
